@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-4 p-4">
+        <h1>Register</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">First Name</label>
+          <input type="text" formControlName="name" class="form-control" 
+          [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">First Name is required</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="text" formControlName="last" class="form-control" 
+          [ngClass]="{ 'is-invalid': submitted && f.last.errors }" required>
+
+          <div *ngIf="submitted && f.last.errors" class="invalid-feedback">
+            <div *ngIf="f.last.errors.required">Last Name is required</div>
+            <div *ngIf="f.last.errors.confirmMatch">Last name should not match</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="date" formControlName="date" class="form-control" 
+          [ngClass]="{ 'is-invalid': submitted && f.date.errors }" required>
+          <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+            <div *ngIf="f.date.errors.required">Date is required</div>
+            <!-- <div *ngIf="f.date.errors.dateAbove">You are not alligible</div> -->
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+</div>
