@@ -9,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup
   ageBelow: boolean = false;
+  errorSMS: boolean = false
 
   constructor(private fb: FormBuilder) { }
 
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.fb.group({
       name: ['', [Validators.required]],
       last: ['', [Validators.required]],
-      date: ['', [Validators.required]]
+      dateAge: ['', [Validators.required]]
     }, {
       // validators:   this.getDateCalculate('date') 
     })
@@ -46,6 +47,19 @@ export class RegisterComponent implements OnInit {
         matchingControl.setErrors(null)
       }
     }
+  }
+  getDate(e){
+    console.log("date", e.target.value)
+    var date1 = new Date(e.target.value)
+     var date2 = new Date();
+     var Time = date2.getTime() - date1.getTime();
+     var years = ((Time / (1000 * 3600 * 24)) / 365);
+     if(years > 18){
+      
+      this.errorSMS = false;
+     } else {
+      this.errorSMS = true;
+     }
   }
 
   getDateCalculate(date: string){

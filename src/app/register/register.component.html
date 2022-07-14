@@ -22,13 +22,13 @@
           </div>
         </div>
         <div class="mb-3">
-          <label class="form-label">Password</label>
-          <input type="date" formControlName="date" class="form-control" 
-          [ngClass]="{ 'is-invalid': submitted && f.date.errors }" required>
-          <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
-            <div *ngIf="f.date.errors.required">Date is required</div>
-            <!-- <div *ngIf="f.date.errors.dateAbove">You are not alligible</div> -->
+          <label class="form-label">Date</label>
+          <input type="date" (change)="getDate($event)" formControlName="dateAge" class="form-control" 
+          [ngClass]="{ 'is-invalid': errorSMS }" required>
+          <div *ngIf="submitted && f.dateAge.errors" class="invalid-feedback">
+            <div *ngIf="f.dateAge.errors.required">Date is required</div>
           </div>
+          <div class="invalid-feedback" *ngIf="errorSMS">You are not eligible</div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
