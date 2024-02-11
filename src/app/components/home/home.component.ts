@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  val ="home works!"
-  myName="Tipu"
-  constructor() { }
 
-  ngOnInit() {
+export class HomeComponent implements OnInit{
+  val ="Test text"
+
+  ngOnInit(): void {
+
   }
 
   sum(){
@@ -19,12 +19,15 @@ export class HomeComponent implements OnInit {
     //
     return 100
   }
-  sumVar(a,b){
+  sumVar(a:number,b:number){
     //
     //
     //
     return a+b
   }
 
+  totalSub(a:number, b: number){
+    return a - b;
+  }
 
 }
