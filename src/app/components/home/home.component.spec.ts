@@ -30,11 +30,10 @@ describe('HomeComponent', () => {
   })
 
   it('Function element', () => {
-
     expect(component.sum()).toBe(100)
   })
-  it('Function with pass var', () => {
 
+  it('Function with pass var', () => {
     expect(component.sumVar(50,50)).toBe(100)
   })
 
